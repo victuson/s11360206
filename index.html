@@ -10,7 +10,119 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            ba<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡單計算機</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background-color: #2c3e50;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            width: 300px;
+            background: #ecf0f1;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .display {
+            width: 100%;
+            height: 60px;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #bdc3c7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        button {
+            padding: 20px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        button.operator {
+            background: #e67e22;
+            color: #fff;
+        }
+        button.equal {
+            background: #27ae60;
+            color: #fff;
+            grid-column: span 4;
+        }
+        button.clear {
+            background: #c0392b;
+            color: #fff;
+        }
+        button.number {
+            background: #95a5a6;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display"></div>
+        <div class="buttons">
+            <button onclick="appendToDisplay('/')" class="operator">÷</button>
+            <button onclick="appendToDisplay('7')" class="number">7</button>
+            <button onclick="appendToDisplay('8')" class="number">8</button>
+            <button onclick="appendToDisplay('9')" class="number">9</button>
+            <button onclick="appendToDisplay('+')" class="operator">+</button>
+            <button onclick="appendToDisplay('4')" class="number">4</button>
+            <button onclick="appendToDisplay('5')" class="number">5</button>
+            <button onclick="appendToDisplay('6')" class="number">6</button>
+            <button onclick="appendToDisplay('-')" class="operator">-</button>
+            <button onclick="appendToDisplay('1')" class="number">1</button>
+            <button onclick="appendToDisplay('2')" class="number">2</button>
+            <button onclick="appendToDisplay('3')" class="number">3</button>
+            <button onclick="appendToDisplay('*')" class="operator">×</button>
+            <button onclick="appendToDisplay('0')" class="number">0</button>
+            <button onclick="appendToDisplay('.')" class="number">.</button>
+            <button onclick="clearDisplay()" class="clear">C</button>
+            <button onclick="calculateResult()" class="equal">=</button>
+        </div>
+    </div>
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById("display").innerText += value;
+        }
+        function clearDisplay() {
+            document.getElementById("display").innerText = "";
+        }
+        function calculateResult() {
+            try {
+                document.getElementById("display").innerText = eval(document.getElementById("display").innerText);
+            } catch (error) {
+                alert("無效的運算式");
+            }
+        }
+    </script>
+</body>
+</html>
+50;
             font-family: Arial, sans-serif;
         }
         .calculator {
